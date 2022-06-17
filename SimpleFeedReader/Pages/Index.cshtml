@@ -10,7 +10,7 @@
         <form method="get">
             <div class="form-group">
                 <label>
-                    Enter a feed URL:
+                    Enter a feed URL with Test:
                     <input name="FeedUrl" id="FeedUrl" class="form-control" value="@Request.Query["feedurl"]" />
                 </label>
             </div>
@@ -19,7 +19,7 @@
             </div>
         </form>
     </div>
-    
+
     @if (!string.IsNullOrEmpty(Model.ErrorText))
     {
         <div>
@@ -29,26 +29,26 @@
 
     @if (Model.NewsItems?.Count > 0)
     {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Published</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.NewsItems)
-            {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        <a href="@item.Uri" target="_blank">@item.Title</a>
-                    </td>
-                    <td>
-                        @item.Published.ToString("MMM dd, yyyy HH:mm:ss")
-                    </td>
+                    <th>Title</th>
+                    <th>Published</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.NewsItems)
+                {
+                    <tr>
+                        <td>
+                            <a href="@item.Uri" target="_blank">@item.Title</a>
+                        </td>
+                        <td>
+                            @item.Published.ToString("MMM dd, yyyy HH:mm:ss")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
 </div>
